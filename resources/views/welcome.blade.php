@@ -7,7 +7,7 @@
 </head>
 <body>
 
-	<div id="app">
+	<div id="app" class="niceLandOfPages">
 		<nav-bar></nav-bar>
 		<div class="container">
 			<header-images-children></header-images-children>

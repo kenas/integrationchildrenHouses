@@ -18,7 +18,7 @@
             axios.get(connection)
             .then(response => {
                 
-                this.images = response.data.results[0].urls.raw + '&ar=9:2&fit=crop';
+                this.images = response.data.results[0].urls.raw + '&ar=9:3&fit=crop';
                 
                //   console.log(this.data.results[0].urls.raw + '');
                 

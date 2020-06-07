@@ -2026,7 +2026,7 @@ __webpack_require__.r(__webpack_exports__);
     var verification = 'client_id=kZyGMfnnVFXSvEURDspBH8l44UaV4pOnW79rKP2k8iI';
     var connection = url + verification;
     axios.get(connection).then(function (response) {
-      _this.images = response.data.results[0].urls.raw + '&ar=9:2&fit=crop'; //   console.log(this.data.results[0].urls.raw + '');
+      _this.images = response.data.results[0].urls.raw + '&ar=9:3&fit=crop'; //   console.log(this.data.results[0].urls.raw + '');
     });
   }
 });

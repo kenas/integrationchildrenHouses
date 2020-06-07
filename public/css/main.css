@@ -97,14 +97,17 @@ nav {
 
 .responsive {
 	max-width: 100%;
-	animation: imagesLand 1s ease-in;
+}
+
+.niceLandOfPages {
+	animation: smooth 1s ease-in;
 }
 
 .space {
 	margin-top: 4rem;
 }
 
-@keyframes imagesLand {
+@keyframes smooth {
 
 	0% {
 		transform: translateY(-50px);
