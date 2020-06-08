@@ -1963,6 +1963,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -2009,6 +2013,8 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
 //
 //
 //
@@ -37438,24 +37444,30 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("nav", [
-    _c("div", { staticClass: "logo" }, [_vm._v("\n          Logo\n        ")]),
-    _vm._v(" "),
-    _vm._m(0),
-    _vm._v(" "),
-    _c("div", { staticClass: "searchLogoWrap" }, [
-      _c("input", {
-        directives: [
-          {
-            name: "show",
-            rawName: "v-show",
-            value: !_vm.isActive,
-            expression: "!isActive"
-          }
-        ],
-        staticClass: "inputSearch  ",
-        attrs: { type: "text", placeholder: "Co hledáte?" }
-      })
+  return _c("nav", { staticClass: "navbar" }, [
+    _c("div", { staticClass: "container-navbar" }, [
+      _c("div", { staticClass: "navbar-layout" }, [
+        _c("div", { staticClass: "logo" }, [
+          _vm._v("\n\t\t\t\tLogo\n\t\t\t\t")
+        ]),
+        _vm._v(" "),
+        _vm._m(0),
+        _vm._v(" "),
+        _c("div", { staticClass: "searchLogoWrap" }, [
+          _c("input", {
+            directives: [
+              {
+                name: "show",
+                rawName: "v-show",
+                value: !_vm.isActive,
+                expression: "!isActive"
+              }
+            ],
+            staticClass: "inputSearch  ",
+            attrs: { type: "text", placeholder: "Co hledáte?" }
+          })
+        ])
+      ])
     ])
   ])
 }

@@ -1,20 +1,24 @@
-<template>        
-    <nav>
-        <div class="logo">
-          Logo
-        </div>
-        <div class="links">
-          <ul>
-            <li class="link"><a href="">Novinky</a></li>
-            <li class="link"><a href="">O projektu</a></li>
-            <li class="link"><a href="">Reference</a></li>
-			<li class="link"><a href="">O nás</a></li>
-            <li class="link"><a href="">Kontakt</a></li>
-          </ul>
-        </div>
-        <div class="searchLogoWrap">
-          	<input class="inputSearch  "v-show="!isActive" type="text" placeholder="Co hledáte?">
-        </div>
+<template>   
+    <nav class="navbar">
+		<div class="container-navbar">
+			<div class="navbar-layout">
+				<div class="logo">
+				Logo
+				</div>
+				<div class="links">
+				<ul>
+					<li class="link"><a href="">Novinky</a></li>
+					<li class="link"><a href="">O projektu</a></li>
+					<li class="link"><a href="">Reference</a></li>
+					<li class="link"><a href="">O nás</a></li>
+					<li class="link"><a href="">Kontakt</a></li>
+				</ul>
+				</div>
+				<div class="searchLogoWrap">
+					<input class="inputSearch  " v-show="!isActive" type="text" placeholder="Co hledáte?">
+				</div>
+			</div>
+		</div>
     </nav>
 </template>
 

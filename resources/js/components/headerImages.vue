@@ -1,5 +1,7 @@
 <template>
+
     <img v-bind:src="images" class="responsive" alt="Deti z detskych domovu">
+    
 </template>
 
 <script>
