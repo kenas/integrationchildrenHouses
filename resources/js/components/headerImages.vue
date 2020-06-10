@@ -1,7 +1,11 @@
 <template>
 
-    <img v-bind:src="images" class="responsive" alt="Deti z detskych domovu">
-    
+    <div class="header-container">
+        <h1 class="heading">Příležitost pro děti z dětských domovů. Příprava a zkušenost pro integraci do života. <a href="" class="knowMore">zjistit více</a></h1>
+
+        <img v-bind:src="images.headerImages" class="responsive" alt="Deti z detskych domovu">
+        
+    </div>
 </template>
 
 <script>
@@ -9,7 +13,10 @@
 
     	data() {
     		return {
-    			images: [],
+    			images: {
+                    headerImages: [],
+                    restImages: []
+                },
     		}
     	},
         created() {
@@ -20,11 +27,21 @@
             axios.get(connection)
             .then(response => {
                 
-                this.images = response.data.results[0].urls.raw + '&ar=9:3&fit=crop';
+                this.images.restImages = response.data.results;
+                this.images.headerImages = response.data.results[1].urls.raw + '&ar=9:3&fit=crop';
                 
-               //   console.log(this.data.results[0].urls.raw + '');
+                this.test();
                 
             });
+        },
+
+        methods: {
+            test: function() {
+            
+                for (let i = 0; i < this.images.restImages.length; i++) {
+                    console.log(this.images.restImages[i].color);
+                }
+            }
         }
     }
 </script>

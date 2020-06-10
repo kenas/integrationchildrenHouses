@@ -18,7 +18,7 @@
 	justify-content: space-between;
 }
 
-.container-navbar {
+.container-navbar { 
 	width: 100%;
     max-width: 1380px;
     padding: 0 24px;
@@ -94,8 +94,52 @@
 	margin: auto 5%;
 }
 
+.header-container {
+	position: relative;
+}
+
+.heading {
+	color: white;
+	position: absolute;
+	top: 50%;
+	left: 0%;
+	max-width: 60%;
+	padding: 0px 24px;
+	transform: translate(0, -50%);
+	animation: smooth 1.5s ease-in;
+}
+
+.knowMore {
+	align-content: center;
+	max-width: 40%;
+	padding: 0.9rem;
+	background-color: pink;
+	color: white;
+	border-radius: 0.3rem;
+	display: flex;
+	margin-top: 12px;
+	font-size: 1rem;
+	text-align: center;
+	text-decoration: none;
+}
+
 .responsive {
 	max-width: 100%;
+	animation: headerImg 1s ease-in;
+}
+
+@keyframes headerImg {
+	0% {
+		transform: translateY(30px);
+
+	}
+	50% {
+
+
+	}
+	100%{
+
+	}
 }
 
 .niceLandOfPages {

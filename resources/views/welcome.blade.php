@@ -8,15 +8,13 @@
 <body>
 
 	<div id="app" class="niceLandOfPages">
-	
 		<nav-bar></nav-bar>
-		
-		<header-images-children></header-images-children>
-		<div class="container">
+			<header-images-children></header-images-children>
+				<div class="container">
 
-			<content-data></content-data>
+				<content-data></content-data>
 
-		</div>
+				</div>
 	</div>
 	<script type="text/javascript" src="{{ asset('js/app.js') }}"></script>
 </body>
