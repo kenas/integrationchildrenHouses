@@ -1,7 +1,8 @@
 <template>
 	<div class="container space">
 			<dir class="articles">
-				<article v-for="item in data" :key="item.index">		
+				<article class="test" v-for="item in data" :key="item.index">
+					<img v-bind:src="item.featured_image" width="300" alt="">		
 					<h1> {{ item.title }} </h1>
 					<p> {{ item.summary }} </p>
 				</article>

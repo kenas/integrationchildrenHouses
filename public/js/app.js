@@ -1925,6 +1925,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -37615,7 +37616,11 @@ var render = function() {
         "dir",
         { staticClass: "articles" },
         _vm._l(_vm.data, function(item) {
-          return _c("article", { key: item.index }, [
+          return _c("article", { key: item.index, staticClass: "test" }, [
+            _c("img", {
+              attrs: { src: item.featured_image, width: "300", alt: "" }
+            }),
+            _vm._v(" "),
             _c("h1", [_vm._v(" " + _vm._s(item.title) + " ")]),
             _vm._v(" "),
             _c("p", [_vm._v(" " + _vm._s(item.summary) + " ")])

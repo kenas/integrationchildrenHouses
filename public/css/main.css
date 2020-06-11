@@ -52,15 +52,30 @@
   height: 2px;
   background-color: pink;
   display: flex;
-  transition: width .3s ease-out;
   position: relative;
-  top:13px;
+  top: 3px;
+
 }
 
 .link:hover::after{
   width: 100%;
-  transition: width .6s ease;
+  transition: width s ease;
   margin-bottom: 3px;
+  animation: barLinks .3s ease-in;
+}
+
+@keyframes barLinks {
+
+	0% {
+		transform: translateY(25px);
+
+	}
+	50% {
+
+	}
+	100% {
+	
+	}
 }
 
 .searchLogoWrap {
@@ -88,18 +103,34 @@
 	width: 100%;
 	height: 23px;
 	border-bottom: 2px solid pink;
+	animation: searchBar .3s ease-in;
 }
 
+@keyframes searchBar {
+	0% {
+		transform: translateY(10px);
+	}
+	50% {
+
+	}
+	100% {
+
+	}
+}
 .container {
 	margin: auto 5%;
 	display: flex;
 
 }
-.articles {
-	flex: 60%;
 
-	
+.test {
+	height: 100vh;
 }
+
+.articles {
+	flex: 60%;	
+}
+
 .acide {
 	flex: 40%;
 	padding-left: 2rem;
@@ -136,12 +167,12 @@
 
 .responsive {
 	max-width: 100%;
-	animation: headerImg 1s ease-in;
+	animation: headerImg .1s ease-in;
 }
 
 @keyframes headerImg {
 	0% {
-		transform: translateY(30px);
+		transform: translateY(20px);
 
 	}
 	50% {
