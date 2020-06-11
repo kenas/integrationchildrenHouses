@@ -92,8 +92,19 @@
 
 .container {
 	margin: auto 5%;
-}
+	display: flex;
 
+}
+.articles {
+	flex: 60%;
+
+	
+}
+.acide {
+	flex: 40%;
+	padding-left: 2rem;
+
+}
 .header-container {
 	position: relative;
 }

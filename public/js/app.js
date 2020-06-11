@@ -1917,6 +1917,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -2040,7 +2048,7 @@ __webpack_require__.r(__webpack_exports__);
     var connection = url + verification;
     axios.get(connection).then(function (response) {
       _this.images.restImages = response.data.results;
-      _this.images.headerImages = response.data.results[1].urls.raw + '&ar=9:3&fit=crop';
+      _this.images.headerImages = response.data.results[2].urls.raw + '&ar=9:3&fit=crop';
 
       _this.test();
     });
@@ -37601,18 +37609,44 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "space" },
-    _vm._l(_vm.data, function(item) {
-      return _c("article", { key: item.index }, [
-        _c("h1", [_vm._v(" " + _vm._s(item.title) + " ")]),
-        _vm._v(" "),
-        _c("p", [_vm._v(" " + _vm._s(item.summary) + " ")])
-      ])
-    }),
-    0
+    { staticClass: "container space" },
+    [
+      _c(
+        "dir",
+        { staticClass: "articles" },
+        _vm._l(_vm.data, function(item) {
+          return _c("article", { key: item.index }, [
+            _c("h1", [_vm._v(" " + _vm._s(item.title) + " ")]),
+            _vm._v(" "),
+            _c("p", [_vm._v(" " + _vm._s(item.summary) + " ")])
+          ])
+        }),
+        0
+      ),
+      _vm._v(" "),
+      _vm._m(0)
+    ],
+    1
   )
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "acide" }, [
+      _c("h2", [_vm._v("Novinky")]),
+      _vm._v(" "),
+      _c("h3", [_vm._v("Aenean maximus lectus non metus gravida ")]),
+      _vm._v(" "),
+      _c("p", [
+        _vm._v(
+          "ras lacus metus, tristique in elementum at, semper non tortor. Praesent tristique, lectus sit amet blandit rutrum, ipsum ante pretium nisl, ac molestie libero tortor vitae est. Praesent tincidunt erat sed dolor volutpat. "
+        )
+      ])
+    ])
+  }
+]
 render._withStripped = true
 
 
@@ -37713,7 +37747,11 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "header-container" }, [
-    _vm._m(0),
+    _c("h1", { staticClass: "heading" }, [
+      _vm._v(
+        "Příležitost pro děti z dětských domovů. Příprava a zkušenost na integraci dětí do života."
+      )
+    ]),
     _vm._v(" "),
     _c("img", {
       staticClass: "responsive",
@@ -37721,21 +37759,7 @@ var render = function() {
     })
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("h1", { staticClass: "heading" }, [
-      _vm._v(
-        "Příležitost pro děti z dětských domovů. Příprava a zkušenost pro integraci do života. "
-      ),
-      _c("a", { staticClass: "knowMore", attrs: { href: "" } }, [
-        _vm._v("zjistit více")
-      ])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
