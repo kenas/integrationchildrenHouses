@@ -1,6 +1,8 @@
-<template>
+<template>  
 
+            
     <div class="header-container">
+
         <h1 class="heading">Příležitost pro děti z dětských domovů. Příprava a zkušenost na integraci dětí do života.</h1>
 
         <img v-bind:src="images.headerImages" class="responsive" alt="Deti z detskych domovu">
@@ -9,7 +11,10 @@
 </template>
 
 <script>
-    export default {
+
+    export default {   
+         
+
 
     	data() {
     		return {
@@ -17,6 +22,8 @@
                     headerImages: [],
                     restImages: []
                 },
+
+          
     		}
     	},
         created() {
@@ -28,7 +35,7 @@
             .then(response => {
                 
                 this.images.restImages = response.data.results;
-                this.images.headerImages = response.data.results[2].urls.raw + '&ar=9:3&fit=crop';
+                this.images.headerImages = response.data.results[1].urls.raw + '&ar=9:3&fit=crop';
                 
                 this.test();
                 

@@ -1,21 +1,26 @@
-<template>   
+<template>
     <nav class="navbar">
-		<div class="container-navbar">
+		<div class="hamburger-container" v-on:click="toggle()">
+			<div class="hamburger"></div>
+			<div class="hamburger"></div>
+			<div class="hamburger"></div>
+		</div>
+		<div class="container-navbar" v-show="isActive">
 			<div class="navbar-layout">
 				<div class="logo">
-				Logo
+					<h4>Integration in vitam</h4>
 				</div>
-				<div class="links">
-				<ul>
+	
+				<ul class="links">
 					<li class="link"><a href="">Novinky</a></li>
 					<li class="link"><a href="">O projektu</a></li>
 					<li class="link"><a href="">Reference</a></li>
 					<li class="link"><a href="">O nás</a></li>
 					<li class="link"><a href="">Kontakt</a></li>
 				</ul>
-				</div>
+	
 				<div class="searchLogoWrap">
-					<input class="inputSearch  " v-show="!isActive" type="text" placeholder="Co hledáte?">
+					<input v-model="searchQuery" class="inputSearch" type="text" placeholder="Co hledáte?">
 				</div>
 			</div>
 		</div>
@@ -29,14 +34,18 @@
     			isActive: false,
     			searchQuery: '',
     			searchQueryResult: '',
-    			listResult: false,
+				listResult: false,
+
     		}
-    	},
+		},
 
         methods: {
+
         	toggle: function() {
+
         		if(this.isActive) {
-        			this.isActive = false;
+					this.isActive = false;
+
         		} else   {
         			this.isActive = true;
         		}

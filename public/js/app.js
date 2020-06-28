@@ -1908,6 +1908,7 @@ module.exports = {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _headerImages_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./headerImages.vue */ "./resources/js/components/headerImages.vue");
 //
 //
 //
@@ -1926,7 +1927,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+
 /* harmony default export */ __webpack_exports__["default"] = ({
+  components: {
+    imagescom: _headerImages_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
+  },
   data: function data() {
     return {
       data: []
@@ -1952,6 +1958,11 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
 //
 //
 //
@@ -2032,6 +2043,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -2049,7 +2062,7 @@ __webpack_require__.r(__webpack_exports__);
     var connection = url + verification;
     axios.get(connection).then(function (response) {
       _this.images.restImages = response.data.results;
-      _this.images.headerImages = response.data.results[2].urls.raw + '&ar=9:3&fit=crop';
+      _this.images.headerImages = response.data.results[1].urls.raw + '&ar=9:3&fit=crop';
 
       _this.test();
     });
@@ -37617,9 +37630,7 @@ var render = function() {
         { staticClass: "articles" },
         _vm._l(_vm.data, function(item) {
           return _c("article", { key: item.index, staticClass: "test" }, [
-            _c("img", {
-              attrs: { src: item.featured_image, width: "300", alt: "" }
-            }),
+            _c("img", { staticClass: "responsive" }),
             _vm._v(" "),
             _c("h1", [_vm._v(" " + _vm._s(item.title) + " ")]),
             _vm._v(" "),
@@ -37674,30 +37685,70 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("nav", { staticClass: "navbar" }, [
-    _c("div", { staticClass: "container-navbar" }, [
-      _c("div", { staticClass: "navbar-layout" }, [
-        _c("div", { staticClass: "logo" }, [
-          _vm._v("\n\t\t\t\tLogo\n\t\t\t\t")
-        ]),
+    _c(
+      "div",
+      {
+        staticClass: "hamburger-container",
+        on: {
+          click: function($event) {
+            return _vm.toggle()
+          }
+        }
+      },
+      [
+        _c("div", { staticClass: "hamburger" }),
         _vm._v(" "),
-        _vm._m(0),
+        _c("div", { staticClass: "hamburger" }),
         _vm._v(" "),
-        _c("div", { staticClass: "searchLogoWrap" }, [
-          _c("input", {
-            directives: [
-              {
-                name: "show",
-                rawName: "v-show",
-                value: !_vm.isActive,
-                expression: "!isActive"
+        _c("div", { staticClass: "hamburger" })
+      ]
+    ),
+    _vm._v(" "),
+    _c(
+      "div",
+      {
+        directives: [
+          {
+            name: "show",
+            rawName: "v-show",
+            value: _vm.isActive,
+            expression: "isActive"
+          }
+        ],
+        staticClass: "container-navbar"
+      },
+      [
+        _c("div", { staticClass: "navbar-layout" }, [
+          _vm._m(0),
+          _vm._v(" "),
+          _vm._m(1),
+          _vm._v(" "),
+          _c("div", { staticClass: "searchLogoWrap" }, [
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.searchQuery,
+                  expression: "searchQuery"
+                }
+              ],
+              staticClass: "inputSearch",
+              attrs: { type: "text", placeholder: "Co hledáte?" },
+              domProps: { value: _vm.searchQuery },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.searchQuery = $event.target.value
+                }
               }
-            ],
-            staticClass: "inputSearch  ",
-            attrs: { type: "text", placeholder: "Co hledáte?" }
-          })
+            })
+          ])
         ])
-      ])
-    ])
+      ]
+    )
   ])
 }
 var staticRenderFns = [
@@ -37705,27 +37756,33 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "links" }, [
-      _c("ul", [
-        _c("li", { staticClass: "link" }, [
-          _c("a", { attrs: { href: "" } }, [_vm._v("Novinky")])
-        ]),
-        _vm._v(" "),
-        _c("li", { staticClass: "link" }, [
-          _c("a", { attrs: { href: "" } }, [_vm._v("O projektu")])
-        ]),
-        _vm._v(" "),
-        _c("li", { staticClass: "link" }, [
-          _c("a", { attrs: { href: "" } }, [_vm._v("Reference")])
-        ]),
-        _vm._v(" "),
-        _c("li", { staticClass: "link" }, [
-          _c("a", { attrs: { href: "" } }, [_vm._v("O nás")])
-        ]),
-        _vm._v(" "),
-        _c("li", { staticClass: "link" }, [
-          _c("a", { attrs: { href: "" } }, [_vm._v("Kontakt")])
-        ])
+    return _c("div", { staticClass: "logo" }, [
+      _c("h4", [_vm._v("Integration in vitam")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("ul", { staticClass: "links" }, [
+      _c("li", { staticClass: "link" }, [
+        _c("a", { attrs: { href: "" } }, [_vm._v("Novinky")])
+      ]),
+      _vm._v(" "),
+      _c("li", { staticClass: "link" }, [
+        _c("a", { attrs: { href: "" } }, [_vm._v("O projektu")])
+      ]),
+      _vm._v(" "),
+      _c("li", { staticClass: "link" }, [
+        _c("a", { attrs: { href: "" } }, [_vm._v("Reference")])
+      ]),
+      _vm._v(" "),
+      _c("li", { staticClass: "link" }, [
+        _c("a", { attrs: { href: "" } }, [_vm._v("O nás")])
+      ]),
+      _vm._v(" "),
+      _c("li", { staticClass: "link" }, [
+        _c("a", { attrs: { href: "" } }, [_vm._v("Kontakt")])
       ])
     ])
   }
