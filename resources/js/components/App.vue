@@ -10,21 +10,22 @@ import contentData from "./ContentData";
 export default {
   data() {
     return {
-      images: {},
+      images: [],
       contentData: {},
     };
   },
 
   created() {
     //verification to the Unsplash
-    const url = "https://api.unsplash.com/search/photos?query=children&";
+    const url =
+      "https://api.unsplash.com/search/photos/?query=children&orientation=landscape&";
     const verification =
       "client_id=kZyGMfnnVFXSvEURDspBH8l44UaV4pOnW79rKP2k8iI";
     const connection = url + verification;
 
     axios.get(connection).then((response) => {
       this.images.restImages = response.data.results;
-      this.images.headerImages =
+      this.images.headerImg =
         response.data.results[1].urls.raw + "&ar=9:3&fit=crop";
 
       //Get curent data
