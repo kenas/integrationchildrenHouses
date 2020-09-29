@@ -1920,9 +1920,32 @@ __webpack_require__.r(__webpack_exports__);
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
-    return {};
+    return {
+      images: {},
+      contentData: {}
+    };
+  },
+  created: function created() {
+    var _this = this;
+
+    //verification to the Unsplash
+    var url = "https://api.unsplash.com/search/photos?query=children&";
+    var verification = "client_id=kZyGMfnnVFXSvEURDspBH8l44UaV4pOnW79rKP2k8iI";
+    var connection = url + verification;
+    axios.get(connection).then(function (response) {
+      _this.images.restImages = response.data.results;
+      _this.images.headerImages = response.data.results[1].urls.raw + "&ar=9:3&fit=crop"; //Get curent data
+
+      axios.get("/api/").then(function (response) {
+        _this.contentData = response.data;
+        Object.keys(_this.contentData).forEach(function (element) {
+          _this.contentData[element].img = _this.images.restImages[element].urls.thumb;
+        });
+      });
+    });
   },
   components: {
+    headerImages: _headerImages__WEBPACK_IMPORTED_MODULE_1__["default"],
     contentData: _ContentData__WEBPACK_IMPORTED_MODULE_2__["default"]
   }
 });
@@ -1939,7 +1962,8 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _headerImages_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./headerImages.vue */ "./resources/js/components/headerImages.vue");
-//
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 //
 //
 //
@@ -1965,35 +1989,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  components: {
-    imagescom: _headerImages_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
-  },
-  data: function data() {
-    return {
-      data: [],
-      images: ["jasjdadjas"]
-    };
-  },
-  created: function created() {
-    var _this = this;
-
-    axios.get("/api/").then(function (response) {
-      _this.data = response.data;
-      Object.keys(_this.data).forEach(function (element) {
-        _this.data[element].img = _this.images;
-      });
-    });
-    this.test();
-  },
-  methods: {
-    test: function test() {
-      for (var i = 0; i < this.data.length; i++) {
-        [i].push("test");
-      } // this.data.forEach((d) => {
-      //   console.log(d.body);
-      // });
-
-    }
+  props: {
+    passing: _defineProperty({
+      Object: Object
+    }, "Object", Object)
   }
 });
 
@@ -2112,18 +2111,24 @@ __webpack_require__.r(__webpack_exports__);
       }
     };
   },
-  created: function created() {
-    var _this = this;
-
-    var url = "https://api.unsplash.com/search/photos?query=children&";
-    var verification = "client_id=kZyGMfnnVFXSvEURDspBH8l44UaV4pOnW79rKP2k8iI";
-    var connection = url + verification;
-    axios.get(connection).then(function (response) {
-      _this.images.restImages = response.data.results;
-      _this.images.headerImages = response.data.results[1].urls.raw + "&ar=9:3&fit=crop";
-    });
-  },
-  methods: {}
+  //   created() {
+  //     const url = "https://api.unsplash.com/search/photos?query=children&";
+  //     const verification =
+  //       "client_id=kZyGMfnnVFXSvEURDspBH8l44UaV4pOnW79rKP2k8iI";
+  //     const connection = url + verification;
+  //     axios.get(connection).then((response) => {
+  //       this.images.restImages = response.data.results;
+  //       this.images.headerImages =
+  //         response.data.results[1].urls.raw + "&ar=9:3&fit=crop";
+  //       this.test();
+  //     });
+  methods: {
+    test: function test() {
+      for (var i = 0; i < this.images.restImages.length; i++) {
+        console.log(this.images.restImages[i].color);
+      }
+    }
+  }
 });
 
 /***/ }),
@@ -37671,7 +37676,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("contentData", { attrs: { listdata: _vm.items } })
+  return _c("contentData", { attrs: { passing: _vm.contentData } })
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -37702,15 +37707,13 @@ var render = function() {
       _c(
         "dir",
         { staticClass: "articles" },
-        _vm._l(_vm.data, function(item) {
+        _vm._l(_vm.passing, function(item) {
           return _c("article", { key: item.index, staticClass: "test" }, [
-            _c("img", { staticClass: "responsive" }),
+            _c("img", { attrs: { src: item.img, alt: "" } }),
             _vm._v(" "),
             _c("h1", [_vm._v(_vm._s(item.title))]),
             _vm._v(" "),
-            _c("p", [_vm._v(_vm._s(item.summary))]),
-            _vm._v(" "),
-            _c("p", [_vm._v(_vm._s(item.img))])
+            _c("p", [_vm._v(_vm._s(item.summary))])
           ])
         }),
         0
@@ -50088,7 +50091,7 @@ window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
-Vue.component('main-app', __webpack_require__(/*! ./components/App.vue */ "./resources/js/components/App.vue"));
+Vue.component('main-app', __webpack_require__(/*! ./components/App.vue */ "./resources/js/components/App.vue")["default"]);
 Vue.component('nav-bar', __webpack_require__(/*! ./components/NavBar.vue */ "./resources/js/components/NavBar.vue")["default"]);
 Vue.component('content-data', __webpack_require__(/*! ./components/ContentData.vue */ "./resources/js/components/ContentData.vue")["default"]);
 Vue.component('header-images-children', __webpack_require__(/*! ./components/headerImages */ "./resources/js/components/headerImages.vue")["default"]);

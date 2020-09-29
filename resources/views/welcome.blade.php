@@ -10,12 +10,12 @@
 <body>
 
     <div id="app" class="niceLandOfPages">
-        <main-app></main-app>
+
         <nav-bar></nav-bar>
         <header-images-children></header-images-children>
         <!-- <div class="container"> -->
 
-        <content-data></content-data>
+        <main-app></main-app>
 
         <!-- </div> -->
     </div>

@@ -1,11 +1,10 @@
 <template>
   <div class="container space">
     <dir class="articles">
-      <article class="test" v-for="item in data" :key="item.index">
-        <img class="responsive" />
+      <article class="test" v-for="item in passing" :key="item.index">
+        <img :src="item.img" alt="" />
         <h1>{{ item.title }}</h1>
         <p>{{ item.summary }}</p>
-        <p>{{ item.img }}</p>
       </article>
     </dir>
 
@@ -26,38 +25,8 @@
 import imagescom from "./headerImages.vue";
 
 export default {
-  components: {
-    imagescom,
-  },
-
-  data() {
-    return {
-      data: [],
-      images: ["jasjdadjas"],
-    };
-  },
-
-  created() {
-    axios.get("/api/").then((response) => {
-      this.data = response.data;
-
-      Object.keys(this.data).forEach((element) => {
-        this.data[element].img = this.images;
-      });
-    });
-
-    this.test();
-  },
-
-  methods: {
-    test: function () {
-      for (let i = 0; i < this.data.length; i++) {
-        [i].push("test");
-      }
-      // this.data.forEach((d) => {
-      //   console.log(d.body);
-      // });
-    },
+  props: {
+    passing: { Object, Object },
   },
 };
 </script>

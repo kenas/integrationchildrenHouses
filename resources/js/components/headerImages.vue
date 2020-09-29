@@ -23,18 +23,25 @@ export default {
       },
     };
   },
-  created() {
-    const url = "https://api.unsplash.com/search/photos?query=children&";
-    const verification =
-      "client_id=kZyGMfnnVFXSvEURDspBH8l44UaV4pOnW79rKP2k8iI";
-    const connection = url + verification;
-    axios.get(connection).then((response) => {
-      this.images.restImages = response.data.results;
-      this.images.headerImages =
-        response.data.results[1].urls.raw + "&ar=9:3&fit=crop";
-    });
-  },
+  //   created() {
+  //     const url = "https://api.unsplash.com/search/photos?query=children&";
+  //     const verification =
+  //       "client_id=kZyGMfnnVFXSvEURDspBH8l44UaV4pOnW79rKP2k8iI";
+  //     const connection = url + verification;
+  //     axios.get(connection).then((response) => {
+  //       this.images.restImages = response.data.results;
+  //       this.images.headerImages =
+  //         response.data.results[1].urls.raw + "&ar=9:3&fit=crop";
 
-  methods: {},
+  //       this.test();
+  //     });
+
+  methods: {
+    test: function () {
+      for (let i = 0; i < this.images.restImages.length; i++) {
+        console.log(this.images.restImages[i].color);
+      }
+    },
+  },
 };
 </script>
