@@ -258,6 +258,7 @@ h1 {
 	.heading {
 		max-width: 90%;
 		font-size: 8vw;
+		text-align: center;
 	}
 
 	.responsive {
